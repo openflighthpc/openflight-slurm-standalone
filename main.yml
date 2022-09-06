@@ -1,0 +1,10 @@
+- name: Configure Single Node Research Environment
+  hosts: localhost
+  remote_user: root
+  gather_facts: True
+  roles:
+    - upstream
+    - slurm
+    - flightenv
+    - flightweb
+    - user

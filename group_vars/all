@@ -1,0 +1,21 @@
+# General
+cluster_name: mycluster
+
+# Shared User
+shared_username: flight
+shared_uid: 10123
+shared_ssh_key: 'ssh-rsa YourPubKeyHere'
+shared_user_password: '0p3nfl1ght'
+
+# FlightEnv Settings
+
+## If true will enable development repositories for OpenFlight packages,
+## installing the latest (and potentially volatile) versions of the user suite
+flightenv_dev: false
+
+## If set then a letsencrypt cert will be generated for the FQDN,
+## this should be a world accessible hostname
+flightweb_fqdn: ""
+
+## If true this will install Alces branding
+alces: false
