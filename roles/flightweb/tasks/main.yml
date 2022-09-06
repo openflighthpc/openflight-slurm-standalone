@@ -1,0 +1,29 @@
+- name: Install web suite
+  yum: name=flight-web-suite state=present
+
+- name: Configure web suite domain
+  command: "/opt/flight/bin/flight web-suite set-domain {{ flightweb_fqdn }}"
+
+- name: Configure landing page
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+    - { src: 'environment.yaml', dest: '/opt/flight/opt/www/landing-page/default/content/data/environment.yaml' }
+
+- name: Start web suite
+  command: "/opt/flight/bin/flight web-suite start"
+
+- name: Enable web suite
+  command: "/opt/flight/bin/flight web-suite enable"
+
+- name: Generate Let's Encrypt certificate
+  command: "/opt/flight/bin/flight www cert-gen --cert-type lets-encrypt --domain {{flightweb_fqdn}} --email stu.franks@openflighthpc.org"
+
+- name: Restart web suite
+  command: "/opt/flight/bin/flight web-suite restart"
+
+- name: Install Alces Landing Page
+  yum: name=alces-flight-landing-page-branding.x86_64 state=present
+  when:
+    - "alces"
