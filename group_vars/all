@@ -9,10 +9,6 @@ shared_user_password: '0penfl1ght'
 
 # FlightEnv Settings
 
-## If true will enable development repositories for OpenFlight packages,
-## installing the latest (and potentially volatile) versions of the user suite
-flightenv_dev: false
-
 ## The hostname or IP address for accessing Web Suite and VNC sessions on
 access_host: ""
 
