@@ -1,27 +1,3 @@
-- name: Install munge
-  yum:
-    name:
-      - munge
-      - munge-libs
-      - perl-Switch
-      - numactl
-    state: present
-
-- name: Install SLURM
-  yum:
-    name:
-      - flight-slurm
-      - flight-slurm-devel
-      - flight-slurm-perlapi
-      - flight-slurm-torque
-      - flight-slurm-slurmd
-      - flight-slurm-example-configs
-      - flight-slurm-libpmi
-      - flight-slurm-slurmctld
-      - flight-slurm-slurmdbd
-    state: present
-    disable_gpg_check: yes
-
 - name: Generate munge key
   shell: "base64 /dev/urandom |tr -dc 'a-zA-Z0-9' |head -c 32"
   register: munge_key
