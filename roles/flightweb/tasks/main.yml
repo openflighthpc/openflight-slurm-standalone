@@ -1,6 +1,3 @@
-- name: Install web suite
-  yum: name=flight-web-suite state=present
-
 - name: Configure web suite domain
   command: "/opt/flight/bin/flight web-suite set-domain {{ flightweb_fqdn }}"
 
