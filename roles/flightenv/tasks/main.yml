@@ -1,31 +1,5 @@
-- name: Install packages
-  yum:
-    name:
-      "{{ all_packages }}"
-    state: present
-    disable_gpg_check: yes
-  vars:
-    generic_list:
-      - flight-user-suite
-      - flight-plugin-system-systemd-service
-      - vte-profile
-    all_packages: "{{ generic_list + ['vte', 'pdsh', 'pdsh-mod-genders'] if ansible_distribution_major_version == '7' else generic_list }}"
-
 - name: Enable flight-service systemd integration
   service: "name=flight-service state=started enabled=yes"
-
-- name: Backup Old Banner Packages
-  command: "mv /opt/flight/etc/{{ item }} /opt/flight/etc/{{ item }}.openflight"
-  with_items:
-    - flight-starter.rc
-    - flight-starter.cshrc
-  when:
-    - "alces"
-
-- name: Swap Banner Packages
-  command: "yum swap -y flight-starter-banner flight-direct-flight-starter-banner"
-  when:
-    - "alces"
 
 - name: Set Alces Desktop Background
   lineinfile:
