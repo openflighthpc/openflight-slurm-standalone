@@ -20,5 +20,3 @@ access_host: ""
 ## for the Web Suite
 generate_certs: true
 
-## If true this will install Alces branding
-alces: false
