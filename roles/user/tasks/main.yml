@@ -1,23 +1,7 @@
-- name: Add Shared User
-  user:
-    name: "{{ shared_username }}"
-    uid: "{{ shared_uid }}"
-    create_home: "yes"
-
 - name: Set User Password
   user:
-    name: "{{ shared_username }}"
+    name: "{{ default_username }}"
     update_password: always
-    password: "{{ shared_user_password | password_hash('sha512') }}"
-  when: "shared_user_password |length > 0"
+    password: "{{ default_user_password | password_hash('sha512') }}"
+  when: "default_user_password |length > 0"
 
-- name: Add SSH Key for User
-  authorized_key: 
-    user: "{{ shared_username }}"
-    key: "{{ shared_ssh_key }}"
-  when: "shared_ssh_key |length > 0"
-
-- name: Enable Flight for User
-  shell: "/opt/flight/bin/flight set always on"
-  become: true
-  become_user: "{{ shared_username }}"

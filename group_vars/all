@@ -2,17 +2,16 @@
 cluster_name: mycluster
 
 # Shared User
-shared_username: flightweb
-shared_uid: 10123
-shared_ssh_key: ''
-shared_user_password: '0penfl1ght'
+default_username: flight
+default_user_password: '0penfl1ght'
 
 # FlightEnv Settings
 
 ## The hostname or IP address for accessing Web Suite and VNC sessions on
 access_host: ""
 
-## If True this will attempt to generate a Let's Encrypt or self-signed cert
-## for the Web Suite
+## If True this will attempt to generate a Let's Encrypt certificate for Web Suite
+## and fall back to a self-signed one if the Let's Encrypt service cannot reach
+## the provided access_host address
 generate_certs: true
 
