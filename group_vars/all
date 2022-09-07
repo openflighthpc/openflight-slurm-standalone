@@ -4,8 +4,8 @@ cluster_name: mycluster
 # Shared User
 shared_username: flightweb
 shared_uid: 10123
-shared_ssh_key: 'ssh-rsa YourPubKeyHere'
-shared_user_password: '0p3nfl1ght'
+shared_ssh_key: ''
+shared_user_password: '0penfl1ght'
 
 # FlightEnv Settings
 

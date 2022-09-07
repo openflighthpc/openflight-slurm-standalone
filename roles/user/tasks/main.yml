@@ -15,6 +15,7 @@
   authorized_key: 
     user: "{{ shared_username }}"
     key: "{{ shared_ssh_key }}"
+  when: "shared_ssh_key |length > 0"
 
 - name: Enable Flight for User
   shell: "/opt/flight/bin/flight set always on"
