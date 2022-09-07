@@ -2,7 +2,7 @@
 cluster_name: mycluster
 
 # Shared User
-shared_username: flight
+shared_username: flightweb
 shared_uid: 10123
 shared_ssh_key: 'ssh-rsa YourPubKeyHere'
 shared_user_password: '0p3nfl1ght'
@@ -13,9 +13,12 @@ shared_user_password: '0p3nfl1ght'
 ## installing the latest (and potentially volatile) versions of the user suite
 flightenv_dev: false
 
-## If set then a letsencrypt cert will be generated for the FQDN,
-## this should be a world accessible hostname
-flightweb_fqdn: ""
+## The hostname or IP address for accessing Web Suite and VNC sessions on
+access_host: ""
+
+## If True this will attempt to generate a Let's Encrypt or self-signed cert
+## for the Web Suite
+generate_certs: true
 
 ## If true this will install Alces branding
 alces: false
