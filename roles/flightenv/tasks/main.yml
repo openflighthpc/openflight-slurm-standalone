@@ -1,6 +1,3 @@
-- name: Enable flight-service systemd integration
-  service: "name=flight-service state=started enabled=yes"
-
 - name: Set Alces Desktop Background
   lineinfile:
     path: /opt/flight/opt/desktop/etc/config.yml
@@ -11,6 +8,12 @@
 
 - name: Set cluster name
   command: "/opt/flight/bin/flight config set cluster.name {{ cluster_name }}"
+
+- name: Set Flight Desktop access host
+  lineinfile:
+    path: /opt/flight/opt/desktop/etc/config.yml
+    line: "access_host: {{ access_host }}"
+    create: yes
 
 - name: Locate flight-env directory
   shell: "rpm -ql flight-env |grep 'bin/flenv' |sed 's,/bin/flenv,,g'"
