@@ -6,6 +6,8 @@
   copy:
     content: "{{ munge_key.stdout }}"
     dest: "/etc/munge/munge.key"
+    owner: munge
+    mode: 0400
 
 - name: Turn on munge
   service: name=munge state=restarted enabled=yes
