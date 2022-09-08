@@ -25,7 +25,7 @@
     owner: nobody
 
 - name: Gather resource limits for localhost
-  shell: "/opt/flight/opt/slurm/sbin/slurmd -C |head -1 |sed 's/NodeName=[a-zA-Z0-9\-]* //g'"
+  shell: "/opt/flight/opt/slurm/sbin/slurmd -C |head -1 |sed 's/NodeName=[a-zA-Z0-9-]* //g'"
   args:
     warn: no
   register: resourcelimits
